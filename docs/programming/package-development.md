@@ -1,7 +1,7 @@
 # Package Development
 
 When developping PHP packages locally I often use a symbolic link
-`ln -s /vagrant/my-package/ /vagrant/www.my-site.com/vendor/my-package`
+`ln -s /my-package/ /package-link-file`
 
 This technique doesn't allow the use of composer commands (E.g composer install)
 
