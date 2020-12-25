@@ -1,5 +1,15 @@
-# Enumeration
+# Tools / Commands
 
+
+## Update a file
+
+```bash
+# Add lines to /etc/hosts
+echo "10.10.11.170 site.com" | sudo tee -a /etc/hosts
+
+# Remove last line from /etc/hosts
+sudo sed -i '$d' /etc/hosts
+```
 
 ## Show OS version
 
