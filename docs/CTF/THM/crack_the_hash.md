@@ -1,4 +1,4 @@
-# Crack The Hash [THM]
+# Crack The Hash [THM](https://tryhackme.com/room/crackthehash)
 
 ## level 1
 
@@ -16,7 +16,7 @@ Possible Hashs:
 hashcat --help | grep md5 # Find the hash id
 
 hashcat -m 0 48bb6e862e54f2a795ffc4e541caed4d /usr/share/wordlists/rockyou.txt --show
-48bb6e862e54f2a795ffc4e541caed4d:easy
+48bb6e862e54f2a795ffc4e541caed4d:####
 ```
 
 ### 2. Crack SHA-1
@@ -33,7 +33,7 @@ Possible Hashs:
 hashcat --help | grep SHA-1 # Find the hash id
 
 hashcat -m 100 cbfdac6008f9cab4083784cbd1874f76618d2a97 /usr/share/wordlists/rockyou.txt --show
-cbfdac6008f9cab4083784cbd1874f76618d2a97:password123
+cbfdac6008f9cab4083784cbd1874f76618d2a97:###########
 ```
 
 ### 3. Crack SHA2-256
@@ -50,7 +50,7 @@ Possible Hashs:
 hashcat --help | grep SHA2-256 # Find the hash id
 
 hashcat -m 1400 1c8bfe8f801d79745c4631d09fff36c82aa37fc4cce4fc946683d7b336b63032 /usr/share/wordlists/rockyou.txt --show
-1c8bfe8f801d79745c4631d09fff36c82aa37fc4cce4fc946683d7b336b63032:letmein
+1c8bfe8f801d79745c4631d09fff36c82aa37fc4cce4fc946683d7b336b63032:#######
 ```
 
 ### 4. Crack bcrypt
@@ -62,7 +62,7 @@ hashcat --help | grep bcrypt # Find the hash id
 
 # Thanks to THM '****' we know the length of the answer 
 hashcat -m 3200 -a 3 hash.txt '?l?l?l?l'
-$2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom:bleh
+$2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom:####
 ```
 Because this challenge was a bit more involved I had to dig into hashcat options.
 I used attack mode 3 now, which corresponds to a brute force attack.
@@ -85,9 +85,9 @@ The built-in charsets include:
 
 ### 5. Crack md4
 
-https://crackstation.net/ revealed the password `Eternity22` (and a type md4)
+https://crackstation.net/ revealed the password `########` (and a type md4)
 
-
+Here is the walkthrough using local tools
 ```bash 
 hash-identifier 279412f945939ba78ce0758d3fd83daa
 
@@ -95,8 +95,7 @@ Possible Hashs:
 [+] MD5
 [+] Domain Cached Credentials - MD4(MD4(($pass)).(strtolower($username)))
 ```
-
-Doing a simple hashcat research didn't yield an exploitable result.
+Simply using a basic hashcat didn't yield any exploitable result.
 So I used a rule [hashcat rule based](https://hashcat.net/wiki/doku.php?id=rule_based_attack)
 
 ```bash
@@ -120,7 +119,7 @@ Possible Hashs:
 hashcat --help | grep SHA2-256 # Find the hash id
 
 hashcat -m 1400 f09edcb1fcefc6dfb23dc3505a882655ff77375ed8aa2d1c13f640fccc2d0c85 /usr/share/wordlists/rockyou.txt --show
-f09edcb1fcefc6dfb23dc3505a882655ff77375ed8aa2d1c13f640fccc2d0c85:paule
+f09edcb1fcefc6dfb23dc3505a882655ff77375ed8aa2d1c13f640fccc2d0c85:#####
 ```
 
 ### 2. Crack NTLM
@@ -128,7 +127,7 @@ f09edcb1fcefc6dfb23dc3505a882655ff77375ed8aa2d1c13f640fccc2d0c85:paule
 `1DFECA0C002AE40B8619ECF94819CC1B`
 
 I couldn't find the hash type locally using hash-identifier.  
-I simply tried https://crackstation.net/ which revealed the password `n63umy8lkf4i` (and a type NTLM)
+I simply tried https://crackstation.net/ which revealed the password `########` (and a type NTLM)
 
 ### 3 Crack sha512crypt
 
@@ -149,7 +148,7 @@ Cost 1 (iteration count) is 5000 for all loaded hashes
 Will run 4 OpenMP threads
 Press 'q' or Ctrl-C to abort, almost any other key for status
 0g 0:00:05:09 5.26% (ETA: 00:15:41) 0g/s 2792p/s 2792c/s 2792C/s matt70..massaf1
-waka99           (?)
+######           (?)
 ```
 
 ### 4. Crack hmac-sha1
@@ -187,5 +186,5 @@ hashcat --help | grep -i 'hmac-sha1' # Find the hash id
 
 ```bash
 hashcat -m 160 e5d8870e5bdd26602cab8dbe07a942c8669e56d6:tryhackme /usr/share/wordlists/rockyou.txt --show
-e5d8870e5bdd26602cab8dbe07a942c8669e56d6:tryhackme:481616481616
+e5d8870e5bdd26602cab8dbe07a942c8669e56d6:tryhackme:##########
 ```
