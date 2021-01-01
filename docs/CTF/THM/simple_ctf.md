@@ -17,7 +17,7 @@ PORT     STATE SERVICE VERSION
 | ftp-syst: 
 |   STAT: 
 | FTP server status:
-|      Connected to ::ffff:10.11.21.99
+|      Connected to ::ffff:[ATTACKER_IP]
 |      Logged in as ftp
 |      TYPE: ASCII
 |      No session bandwidth limit

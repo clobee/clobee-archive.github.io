@@ -427,7 +427,7 @@ Let's download the image we found on James ssh account
 python3 -m http.server
 
 Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
-10.11.21.99 - - [28/Dec/2020 04:39:21] "GET /Alien_autospy.jpg HTTP/1.1" 200 -
+[ATTACKER_IP] - - [28/Dec/2020 04:39:21] "GET /Alien_autospy.jpg HTTP/1.1" 200 -
 ```
 
 In my Kali
