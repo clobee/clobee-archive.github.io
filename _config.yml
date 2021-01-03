@@ -4,6 +4,9 @@ description: A guy, a computer and an internet connexion
 
 theme: null
 
+meta:
+  key1: google-site-verification=vLNlmuA0MZFrilBhcEeCmuWGJ5kGQnixzfGAhAaWds0
+
 # debug:
 #   compress: true
 #   dist: false
