@@ -2,7 +2,7 @@
 sort: 0
 ---
 
-# CTF: Try Hack Me
+# Try Hack Me
 
 
 {% include list.liquid %}
