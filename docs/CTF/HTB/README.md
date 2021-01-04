@@ -2,7 +2,7 @@
 sort: 0
 ---
 
-# CTF
+# Hack The Box
 
 
 {% include list.liquid %}
