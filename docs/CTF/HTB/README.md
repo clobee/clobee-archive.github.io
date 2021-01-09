@@ -2,7 +2,7 @@
 sort: 0
 ---
 
-# Try Hack Me
+# Hack The Box
 
 
 {% include list.liquid %}
