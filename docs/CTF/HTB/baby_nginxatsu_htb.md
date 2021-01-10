@@ -2,11 +2,11 @@
 
 ---  
 
-__Title__: Baby Nginxatsu
-__Description__: A web site that allow user to create Nginx config
-__summary__: We were able to retrieve the admin password from a SQLite backup left on the server
-__Tags__:  nginx, php, sqlite, hashcat
-__host__: 178.128.175.172:32194
+__Title__: Baby Nginxatsu  
+__Description__: A web site that allow user to create Nginx config   
+__summary__: We were able to retrieve the admin password from a SQLite backup left on the server  
+__Tags__:  nginx, php, sqlite, hashcat  
+__host__: 178.128.175.172:32194  
 
 
 ---  
@@ -30,7 +30,7 @@ http://178.128.175.172:32194 [302 Found] Cookies[XSRF-TOKEN,laravel_session], Co
 
 http://178.128.175.172:32194/auth/login [200 OK] Cookies[XSRF-TOKEN,laravel_session], Country[GREECE][GR], HTTPServer[nginx], HttpOnly[laravel_session], IP[178.128.175.172], Laravel, Meta-Author[makelarisjr, makelaris], PHP[7.4.12], PasswordField[password], Title[nginxatsu], X-Powered-By[PHP/7.4.12], nginx
 ```
-Running whatweb against the application we managed to get some information about the platform: Laravel (PHP 7.4.12)
+Running `whatweb` against the application we managed to get some information about the platform: Laravel (PHP 7.4.12)
 
 ### Nginx Config generator
 
@@ -78,6 +78,8 @@ database/database.sqlite
 ```
 
 Let's load the file in `DB Browser for SQLite`
+
+
 
 We have been able to retrieve few users (and their passwords hashes) from the DB.
 
