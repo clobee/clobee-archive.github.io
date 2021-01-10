@@ -133,4 +133,4 @@ e7816e9a10590b1e33b87ec2fa65e6cd:XXXXXXXX
 
 At this point we have `jr` password `XXXXXXX`
 
-Using those information we manage to logged in to `jr` account and because he was the admin, we got the flag.
+Using those information can log in to `jr` account and get the flag.
