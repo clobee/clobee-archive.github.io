@@ -1,16 +1,14 @@
 # [Baby Nginxatsu](https://app.hackthebox.eu/challenges/180)
 
----  
-
-__Title__: Baby Nginxatsu  
+__Title__: Baby Nginxatsu write-up  
 __Description__: A web site that allow user to create Nginx config   
 __summary__: We were able to retrieve the admin password from a SQLite backup left on the server  
 __Tags__:  nginx, php, sqlite, hashcat  
 __host__: 178.128.175.172:32194  
 
+![homepage image of baby-nginxatsu](https://github.com/clobee/images/blob/main/Screenshot_2021-01-10%20nginxatsu.png)
 
 ---  
-
 
 ## Enumeration
 
@@ -79,9 +77,11 @@ database/database.sqlite
 
 Let's load the file in `DB Browser for SQLite`
 
-
+![DB Browser SQLite](https://github.com/clobee/images/blob/main/Screenshot_2021-01-10_17-47-13.png)
 
 We have been able to retrieve few users (and their passwords hashes) from the DB.
+
+![DB Browser SQLite](https://github.com/clobee/images/blob/main/Screenshot_2021-01-10_17-49-25.png)
 
 ### Password cracking
 
@@ -128,10 +128,9 @@ hashcat (v6.1.1) starting...
 
 ```bash
 $ hashcat -m 0 passwords /usr/share/wordlists/rockyou.txt --show
-e7816e9a10590b1e33b87ec2fa65e6cd:adminadmin1
+e7816e9a10590b1e33b87ec2fa65e6cd:XXXXXXXX
 ```
 
-At this point we have `jr` password `adminadmin1`
-
+At this point we have `jr` password `XXXXXXX`
 
 Using those information we manage to logged in to `jr` account and because he was the admin, we got the flag.
