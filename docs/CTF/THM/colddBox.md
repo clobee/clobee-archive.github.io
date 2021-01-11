@@ -1,11 +1,11 @@
 # ColddBox: Easy [THM](https://tryhackme.com/room/colddboxeasy)
 
 __Title__: ColddBox: Easy write-up  
-__Description__: An easy level machine with multiple ways to escalate privileges.
-__summary__:  
-__Tags__:  
+__Description__: An easy level machine with multiple ways to escalate privileges.  
+__summary__: Using wpscan we were able to find few users then a password which gave use access to the admin where we could edit a PHP to open a reverse shell and escalate our privileges using the information store in the wordpress config  
+__Tags__:  Wordpress, wpscan, Gobuster  
 
-![homepage image of baby-website-rick](https://github.com/clobee/images/blob/main/Screenshot_2021-01-10%20nginxatsu.png)
+![homepage image of ColddBox](https://github.com/clobee/images/blob/main/Screenshot_2021-01-10%20ColddBox%20One%20more%20machine.png)
 
 ---  
 
@@ -151,17 +151,13 @@ $ wpscan --url http://10.10.204.183/ -U c0ldd,hugo,philip -P /usr/share/wordlist
 
 Thanks to Wpscan, we now have a valid access to wordpress
 
-[ Wordpress image c0ldd account]
-
+![Wordpress edit header page](https://github.com/clobee/images/blob/main/Screenshot_2021-01-10_22-17-16.png)
 
 ## Server access
 
 ### Server access: www-data user
 
 Let's copy the content of a PHP reverse shell `/usr/share/webshells/php/php-reverse-shell.php` into the `header.php` of the current theme
-
-[ Wordpress edit header page]
-
 
 Let's start netcat in our Kali 
 
@@ -170,7 +166,6 @@ $ nc -nvlp 1234
 Ncat: Version 7.91 ( https://nmap.org/ncat )
 Ncat: Listening on :::1234
 Ncat: Listening on 0.0.0.0:1234
-
 ```
 
 Visiting the site main page
